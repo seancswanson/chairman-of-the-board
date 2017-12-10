@@ -1,11 +1,11 @@
-# chairman-of-the-board
+# Chairman of the Board
 A front-end corporate ladder simulator game.
 
 ## Instructions
 Start your corporate career as a Mailroom Clerk and try to climb the ranks as you encounter scenarios and events that could skyrocket you to your Golden Throne as Chairman of the Board or be derailed and spend eternity in that god-forsaken letter hell!
 
 
-# Getting Started
+## Getting Started
 
    To get started playing **Chairman of the Board**, please fork this repo and clone into it on your system through git. Run the index.html in the root folder and  enjoy!
    
