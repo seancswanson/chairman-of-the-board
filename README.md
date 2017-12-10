@@ -27,7 +27,7 @@ Start your corporate career as a Mailroom Clerk and try to climb the ranks as yo
 
 > As of **December 9,2017** this game is in development whilst enrolled in General Assembly's WDI program.
 
-
+> As of **December 10,2017** working on start splash screen and interactive elements including buttons, noise, and instructions. Beginning of game logic.
 
 ## Authors
 
@@ -39,3 +39,13 @@ Start your corporate career as a Mailroom Clerk and try to climb the ranks as yo
 1. A hat tip to General Assembly Seattle's WDI-16 Instruction team for constant love and support during the program!
 2. Inspiration coming from my father, who programmed the first iteration of this game in GWBASIC back in the 1980's.
 3. _**"You"**_ for visiting this repo and being so lovely.
+
+-Hypercard Graphics by Eliot Gardepe designed by Susan Kare
+
+-"VT323" Font by credit later
+
+-New York Jazz Loop credit later
+
+-Office Ambience credit later
+
+-Menu Click credit later
