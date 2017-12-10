@@ -7,13 +7,14 @@ header {
 }
 
 header h1 {
-    width: 350px;
+    width: 375px;
     margin: 0 auto;
     padding: 15px;
     border-top: 3px dashed white;
     border-bottom: 3px dashed white;
     border-left: 4px double white;
     border-right: 4px double white;
+    letter-spacing: 3px;
 }
 
 body {
@@ -27,10 +28,23 @@ body {
     font-weight: 300;
 }
 
-div {}
+footer {
+	/*display: none;	*/
+	position:relative;
+	top:-40px;
+}
+
+footer li{
+	display:inline-block;
+}
 
 ul {
     list-style: none;
+}
+
+button:hover {
+    cursor: url('../assets/img/custom-cursor.png') 10 -30, pointer;
+
 }
 
 .container {
@@ -56,10 +70,16 @@ ul {
 
 .action-button {
     width: 44%;
+    border: 1px solid black;
+    border-radius: 1px;
+    font-family: "VT323", monospace;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 #start-screen {
-    /*display:none;*/
+    display:none;
     background: url(../assets/img/window.png);
     height: 371px;
     width: 525px;
@@ -73,6 +93,9 @@ ul {
 
 #chairman-title {
     font-size: 50px;
+    letter-spacing: 4px;
+  	position: relative;
+  	top: -15px;
 }
 
 #start-author {
@@ -111,7 +134,7 @@ ul {
     border-radius: 5px;
     position: relative;
     top: 24px;
-    display: none;
+    /*display: none;*/
 }
 
 #scenario-div {
