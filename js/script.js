@@ -4,6 +4,7 @@ console.log('JS loaded');
 var menuMusic = new Audio('../assets/audio/menu.wav');
 var menuNoise = new Audio('../assets/audio/office.wav');
 
+//variables for scores, week counter for promotion
 
 // menuMusic.play();
 // menuNoise.play();
