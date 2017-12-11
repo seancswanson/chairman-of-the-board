@@ -121,6 +121,11 @@ button:hover {
   position: relative;
   top: 25px;
   color: black;
+  -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 3s; /* Firefox < 16 */
+  -ms-animation: fadein 3s; /* Internet Explorer */
+  -o-animation: fadein 3s; /* Opera < 12.1 */
+  animation: fadein 3s;
 }
 
 #chairman-title {
@@ -129,6 +134,11 @@ button:hover {
   letter-spacing: 4px;
   position: relative;
   top: -15px;
+  -webkit-animation: fadein 4s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 4s; /* Firefox < 16 */
+  -ms-animation: fadein 4s; /* Internet Explorer */
+  -o-animation: fadein 4s; /* Opera < 12.1 */
+  animation: fadein 4s;
 }
 
 #start-author {
@@ -159,6 +169,7 @@ button:hover {
   z-index: 99;
   position: relative;
   top: -315px;
+  display:none;
 }
 
 #instructions-div p {
@@ -249,6 +260,7 @@ button:hover {
   border-radius: 5px;
   position: relative;
   top: 24px;
+  display: none;
 }
 
 #scenario-div {

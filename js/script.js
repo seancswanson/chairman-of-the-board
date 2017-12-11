@@ -52,6 +52,7 @@ function loadGame() {
 function startGame() {
 	startScreen.hide();
 	gameScreen.show();
+	mailRoomClerk();
 }
 
 function openInstructions(){
@@ -61,6 +62,18 @@ function openInstructions(){
 	})
 }
 
+//grab random scenario from first obect array
+function mailRoomClerk(){
+	// var scenario = Math.floor(Math.random() * jobPositions[0].scenarios.length)-1;
+	$(scenarioP).text(jobPositions[0].scenarios[0].text);
+	$(actionButtons).each(function(i){
+		$(this).text(jobPositions[0].scenarios[0].outcomes[i].action);
+	// 	for(var i = 0; i<jobPositions[0].scenarios[0].outcomes.length; i++){
+	// 		console.log(i);
+	// 	$(this).text(jobPositions[0].scenarios[0].outcomes[i].action);
+	// }
+	})
+}
 
 // menuMusic.play();
 // menuNoise.play();
