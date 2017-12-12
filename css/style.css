@@ -276,35 +276,59 @@ button:hover {
 }
 
 #scenario-div p {
-  vertical-align: middle;
+  margin: 5px 0;
+
 }
 
 #result-div {
   color: black;
+  width: 400px;
+  margin: 0 auto;
+}
+
+#result-text {
+  font-size: 18px;
+}
+
+.inline-score{
+  display: inline;
+  margin-right: 15px;
+}
+
+#nextButton {
+  margin-top: 10px;
+  padding: 3px;
 }
 
 #scores {
   z-index: 99;
-  position: absolute;
+  /*position: absolute;*/
 }
 
-#scores p {
-  color: black;
-  display: inline-block;
-  position: relative;
+#scores ul {
+  float: left;
   top: 5px;
-  left: -10px;
-  margin-left: 20px;
+  color: black;
+  position: absolute;
+  left: -20px;
+  top: 330px;
+  margin-left:;
+  text-align: center;
 }
 
+#scores li {
+display: inline;
+}
 #week {
-
+  position: relative;
 }
 
 #confidence {
-
+  position: relative;
+  left: 140px;
 }
 
 #brownie-points {
-
+  position: relative;
+  left: 230px;
 }
