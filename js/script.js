@@ -64,13 +64,18 @@ function openInstructions(){
 //grab random scenario from first obect array
 function mailRoomClerk(){
 	// var scenario = Math.floor(Math.random() * jobPositions[0].scenarios.length)-1;
+	// grabs the text from a scenario nested in the current job title object
 	$(scenarioP).text(jobPositions[0].scenarios[0].text);
+	// for each possible choice, make a button for it.
 	for(var i = 0; i<jobPositions[0].scenarios[0].outcomes.length; i++){
 		console.log(i);
 		var choice = $('<button class=action-button>'+jobPositions[0].scenarios[0].outcomes[i].action+'</button>');
+	// add tht button to the actionsDiv
 	$(actionsDiv).append(choice);
 	};
 	var actionButtons = $(".action-button");
+	// on action click I want to return the index of that button and then 
+	// populate the correlated outcome text by calling it with the action index... 
 	$(actionButtons).on("click", function(){
 		$(this).on("click", function(){
 					actionIndex = $(this).index(actionButtons);
