@@ -26,7 +26,6 @@ var confidenceP = $("#confidence");
 var brownieP = $("#brownie-points");
 // selectors for action buttons
 var actionsDiv = $("#actions-div");
-var actionButtons = $(".action-button");
 //** individual action buttons,
 //** 1>TopLeft, 2>TopRight,
 //** 3>BottomLeft, 4>BottomRight
@@ -66,12 +65,17 @@ function openInstructions(){
 function mailRoomClerk(){
 	// var scenario = Math.floor(Math.random() * jobPositions[0].scenarios.length)-1;
 	$(scenarioP).text(jobPositions[0].scenarios[0].text);
-	$(actionButtons).each(function(i){
-		$(this).text(jobPositions[0].scenarios[0].outcomes[i].action);
-	// 	for(var i = 0; i<jobPositions[0].scenarios[0].outcomes.length; i++){
-	// 		console.log(i);
-	// 	$(this).text(jobPositions[0].scenarios[0].outcomes[i].action);
-	// }
+	for(var i = 0; i<jobPositions[0].scenarios[0].outcomes.length; i++){
+		console.log(i);
+		var choice = $('<button class=action-button>'+jobPositions[0].scenarios[0].outcomes[i].action+'</button>');
+	$(actionsDiv).append(choice);
+	};
+	var actionButtons = $(".action-button");
+	$(actionButtons).on("click", function(){
+		$(this).on("click", function(){
+					actionIndex = $(this).index(actionButtons);
+					console.log(actionIndex);
+		})
 	})
 }
 
