@@ -91,12 +91,14 @@ button:hover {
 }
 
 .action-button {
-  width: 44%;
+  width: 450px;
   border: 2px solid transparent;
   border-radius: 1px;
-  font-size: 13px;
+  font-size: 13.4px;
+  /*font-weight: 600;*/
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.1px;
+  line-height: 12.2px;
 }
 
 .action-button:hover {
@@ -127,11 +129,11 @@ button:hover {
   position: relative;
   top: 25px;
   color: black;
-  -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 3s; /* Firefox < 16 */
-  -ms-animation: fadein 3s; /* Internet Explorer */
-  -o-animation: fadein 3s; /* Opera < 12.1 */
-  animation: fadein 3s;
+  -webkit-animation: fadein 2.3s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 2.3s; /* Firefox < 16 */
+  -ms-animation: fadein 2.3s; /* Internet Explorer */
+  -o-animation: fadein 2.3s; /* Opera < 12.1 */
+  animation: fadein 2.3s;
 }
 
 #chairman-title {
@@ -270,20 +272,20 @@ button:hover {
 }
 
 #scenario-div {
-  height: 100px;
-  width: 400px;
+  height: 90px;
+  width: 470px;
   margin: 30px auto;
-  padding: 5px;
+  padding: 3px;
   border: 3px double black;
+  font-size:17px;
   position: relative;
-  box-shadow: 1px 1px 1px 2px rgba(255, 255, 255, .3);
   color: black;
   overflow: hidden;
 }
 
 #scenario-div p {
-  margin: 5px 0;
-
+  margin: 2px 0;
+  padding: 1px;
 }
 
 #result-div {
@@ -294,7 +296,16 @@ button:hover {
 
 #result-text {
   font-size: 18px;
+  position: relative;
+  top: -20px;
 }
+
+#choice {
+  position: relative;
+  top: -10px;
+  margin: 1px;
+/*  border:1px dashed rgba(0,0,0,.8);
+*/}
 
 .inline-score{
   display: inline;
@@ -302,8 +313,17 @@ button:hover {
 }
 
 #nextButton {
-  margin-top: 10px;
-  padding: 3px;
+  position: relative;
+  top: -5px;
+  padding: 2px;
+  width: 200px;
+}
+
+#promotionButton{
+  position: relative;
+  top: -5px;
+  padding: 2px;
+  width: 200px;
 }
 
 #scores {
@@ -336,7 +356,7 @@ display: inline;
 
 #brownie-points {
   position: relative;
-  left: 140px;
+  left: 132px;
 }
 
 #job {
@@ -345,15 +365,18 @@ display: inline;
 }
 
 #use-confidence {
-  font-size: 20px;
+  font-size: 22px;
   position: relative;
-  top: 50px;
+  top: 20px;
+  padding: 10px;
+  line-height: 20px;
 }
 
 #use-brownie {
-  font-size: 20px;
+  font-size: 22px;
   position: relative;
-  top: 60px;
+  top: 30px;
+  padding: 10px;
 }
 
 #next-job {
@@ -372,4 +395,5 @@ display: inline;
   width: 400px;
   border: 5px dotted black;
   padding: 15px;
+  line-height: 30px;
 }
