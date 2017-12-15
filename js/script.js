@@ -1,84 +1,5 @@
-console.log('JS loaded');
 
-//variables for sound 
-var menuMusic = new Audio('../assets/audio/menu.wav');
-var menuNoise = new Audio('../assets/audio/office.wav');
-//variables for document selectors
-
-//** Starting Screen Selectors
-var header = $("header");
-var startScreen = $("#start-screen");
-var chairmanTitle = $("#chairman-title");
-var playButton = $("#start");
-var instructionsButton = $("#info");
-var instructionDiv = $("#instructions-div");
-var exitInstructions = $("#return-to-menu");
-//** Game selectors 
-var gameScreen = $("#game-div");
-var scenarioDiv = $("#scenario-div");
-var scenarioP = $("#scenario-text");
-var resultDiv = $("#result-div");
-var resultP = $("#result-text");
-var actionsDiv = $("#actions");
-var actionButtons = $(".action-button");
-var scoresDiv = $("#scores");
-var weekLi = $("#week");
-var jobLi = $("#job");
-var confidenceLi = $("#confidence");
-var brownieLi = $("#brownie-points");
-// selectors for action buttons
-var actionsDiv = $("#actions-div");
-//variables for scores, week counter for promotion
-var weekCount = 0;
-var confidenceCount = 0;
-var brownieCount = 0;
-// Starts job position at mail clerk.
-var jobIndex = 0;
-// For referencing scenario
-var sceneIndex = 0;
-// For referencing choice made
-var actionIndex = 0;
-
-// For button for next scene 
-var nextScene = $('<button class="action-button" id="nextButton">Next scene</button> or ');
-
-// For button for promotions
-var promotionButton = $('<button class="action-button" id="promotionButton">Try for promotion?</button>');
-var confidenceButton = $('<button class="action-button" id="use-confidence">Use confidence points,<br> i\'ll take my chances.</button>');
-var brownieButton = $('<button class="action-button" id="use-brownie">Use brownie points!</button>');
-var nextJob = $('<button class="action-button" id="next-job">Start your new job!</button>');
-var startOver = $('<button class="action-button" id="start-over">Reincarnate as the ' + jobPositions[jobIndex].title + '</button>');
-//Add event listeners to start game
-document.addEventListener("DOMContentLoaded", loadGame);
-
-// var scenarioArray = jobPositions[jobIndex].scenarios[sceneIndex];
-
-function loadGame() {
-    menuMusic.play();
-    menuNoise.play();
-    startScreen.slideDown();
-    gameScreen.hide();
-    instructionDiv.hide();
-    playButton.on("click", startGame);
-    instructionsButton.on("click", openInstructions);
-}
-
-function startGame() {
-    menuMusic.pause();
-    menuNoise.pause();
-    startScreen.hide();
-    header.fadeOut();
-    gameScreen.fadeIn();
-    careerBegin(jobIndex, sceneIndex);
-}
-
-function openInstructions() {
-    instructionDiv.fadeIn();
-    exitInstructions.on("click", function() {
-        instructionDiv.fadeOut();
-    })
-}
-//** randomize scenarios
+//** randomize scenarios ** To do >> if I want to incorporate 'wild card' events for a longer game.
 // function shuffle(scenarioArray) {
 //   var m = scenarioArray.length, t, i;
 
@@ -97,25 +18,27 @@ function openInstructions() {
 //   return scenarioArray;
 // }
 
-//grab random scenario from first obect array
+// Populates the game-screen with the first job scenario corresponding to that job title.
 function careerBegin(jobIndex, sceneIndex) {
     // shuffle(scenarioArray);
     // var scenario = Math.floor(Math.random() * jobPositions[0].scenarios.length)-1;
+
  		$(actionsDiv).html("");
+
+ 		// Sets the game to ask for a promotion after all 4 scenarios are completed.
     if (sceneIndex <= 3) {
-        // grabs the text from a scenario nested in the current job title object
+        // Grabs the text from a scenario nested in the current job title object
         $(jobLi).text(jobPositions[jobIndex].title);
         $(scenarioP).text(jobPositions[jobIndex].scenarios[sceneIndex].text);
-        // console.log(jobPositions[0].scenarios[sceneIndex].text);
-        // for each possible choice, make a button for it.
+        // For each possible choice, make a button for it.
         for (var i = 0; i < jobPositions[jobIndex].scenarios[sceneIndex].outcomes.length; i++) {
             var choice = $('<button class=action-button id=choice>' + jobPositions[jobIndex].scenarios[sceneIndex].outcomes[i].action + '</button>');
-            // add tht button to the actionsDiv
+            // Add that choice button to the actionsDiv
             $(actionsDiv).append(choice);
         };
         var actionButtons = $(".action-button");
-        // on action click I want to return the index of that button and then 
-        // populate the correlated outcome text by calling it with the button 
+        // On action click I want to return the index of that button and then 
+        // populate the correlated outcome/result text 
         $(actionButtons).on("click", function() {
             actionIndex = $(actionButtons).index(this);
             takeAction();
@@ -126,13 +49,14 @@ function careerBegin(jobIndex, sceneIndex) {
 }
 
 
-// After any action is taken, displays the result
+// After any action is taken, displays the result, offers to proceed to next scene or week
+// or go right for a promotion.
 function takeAction() {
     actionsDiv.html("");
     
     var result = $('<p id="result-text">' + jobPositions[jobIndex].scenarios[sceneIndex].outcomes[actionIndex].result + '</p>');
     $(resultDiv).append(result);
-    
+
     var confidence = jobPositions[jobIndex].scenarios[sceneIndex].outcomes[actionIndex].confidence;
     var confidenceMessage = $('<p class="inline-score" id="result-text">' + 'Confidence +' + confidence + '</p>');
     var confidenceLossMessage = $('<p class="inline-score" id="result-text">' + 'Confidence ' + confidence + '</p>');
@@ -140,6 +64,7 @@ function takeAction() {
     var brownieMessage = $('<p class="inline-score" id="result-text">' + 'Brownie Points +' + jobPositions[jobIndex].scenarios[sceneIndex].outcomes[actionIndex].brownie + '</p>');
     var brownieLossMessage = $('<p class="inline-score" id="result-text">' + 'Brownie Points ' + brownie + '</p>');
     
+    // Determines which score text to display.
     if (confidence >= 0 && brownie > 0) {
         $(resultDiv).append(confidenceMessage).append(brownieMessage);
         updateData(confidence, brownie);
@@ -163,7 +88,13 @@ function takeAction() {
         careerBegin(jobIndex, sceneIndex);
     });
 
-    promotionButton.on("click", tryPromotion);
+    // If on the last job title and on the 3rd scenario or further, allow for checkForWin if try for promotion button clicked.
+if (jobIndex===3 && sceneIndex >= 3){
+    promotionButton.on("click", checkForWin);
+} else {
+    promotionButton.on("click",tryPromotion);
+
+}
 };
 
 // Updates week, confidence, brownie points score
@@ -178,19 +109,29 @@ function updateData(confidence, brownie) {
     $(brownieLi).text("Brownie Points: " + brownieCount);
 }
 
+
+// Offers two choices for promotion, using confidence points or brownie points.
 function tryPromotion() {
     $(scenarioP).html("");
     $(resultDiv).html("");
     $(actionsDiv).html("");
     
     actionsDiv.append(confidenceButton).append(brownieButton);
-    confidenceButton.on("click", confidencePromotion);
-    brownieButton.on("click", browniePromotion);
-    
     $(scenarioP).append("Would you like to try for a promotion? You have two ways to move up.");
     $(scenarioP).append("<p>a) Use confidence points to take your chances.</p><p>b) Use brownie points- if you have enough then it will be an instant win... or else you get sent back to the beginning!</p>");
+
+    // If conditions are right for win check then check it!
+    if (jobIndex===3 && sceneIndex >= 3){
+	    confidenceButton.on("click", checkForWin);
+	    brownieButton.on("click", checkForWin);
+    } else {
+      confidenceButton.on("click", confidencePromotion);
+    	brownieButton.on("click", browniePromotion);
+    };
 }
 
+
+// Checks for sufficient confidence
 function confidencePromotion() {
     console.log("Used Confidence");
     if (jobIndex === 0) {
@@ -201,11 +142,9 @@ function confidencePromotion() {
         var minConfidence = Math.floor(Math.random() * 400);
     } else if (jobIndex === 3) {
         var minConfidence = Math.floor(Math.random() * 500);
-    } else {
-        var minConfidence = Math.floor(Math.random() * 800);
     };
     console.log(minConfidence);
-    if (confidenceCount > minConfidence) {
+    if (confidenceCount >= minConfidence) {
         console.log("You got promoted!");
         jobIndex++;
         sceneIndex = 0;
@@ -216,13 +155,9 @@ function confidencePromotion() {
         $(actionsDiv).append(nextJob);
         nextJob.on("click", function() {
             this.remove();
-            if(jobIndex===4){
-            	gameWin();
-            } else {
             careerBegin(jobIndex, sceneIndex);
-            }
-        });
-    } else {
+            });
+        } else {
         console.log("You didn't get promoted.");
         sceneIndex = 0;
         $(actionsDiv).html("");
@@ -237,12 +172,14 @@ function confidencePromotion() {
 
 }
 
+
+// Checks for sufficient brownie points
 function browniePromotion() {
     console.log("Used brownie points");
-    if (brownieCount >= 1) {
+    if (brownieCount >= 3) {
         console.log("You got promoted!");
         jobIndex++;
-        brownieCount--;
+        brownieCount-=3;
         $(brownieLi).text("Brownie Points: " + brownieCount);
         sceneIndex = 0;
         $(actionsDiv).html("");
@@ -253,12 +190,12 @@ function browniePromotion() {
         nextJob.on("click", function() {
             this.remove();
             careerBegin(jobIndex, sceneIndex);
-        });
-    } else {
+          })
+        }else {
         console.log("You didn't get promoted.");
         sceneIndex = 0;
         brownieCount--;
-           $(brownieLi).text("Brownie Points: " + brownieCount);
+       	$(brownieLi).text("Brownie Points: " + brownieCount);
         $(actionsDiv).html("");
         $(scenarioP).html("");
         $(scenarioP).append("<p>You dropped the ball and didn't land your promotion.</p><p>So sorry your path to be the Chairman was thwarted! You will relive the last weeks worked and groundhog day your way to success.</p><p>The chance for corporate glory is nigh!</p>");
@@ -267,25 +204,19 @@ function browniePromotion() {
             this.remove();
             careerBegin(jobIndex, sceneIndex);
         });
-    }
+}
 }
 
-
-function gameWin(){
-	$(scenarioP).append("<p>Wow! Well done on your climb up the coroporate ladder! You have achieved the ultimate spot at the top as:</p><h1 Chairman of the Board</h1><p>Congratulations! You will start your new job next week and never report to anyone ever again.</p><p>I believe you can make huge changes in this world!</p>");
+// Final check for confidence or brownies for the ultimate promotion
+function checkForWin(){
+	console.log("check for win");
+	var minConfidence = Math.floor(Math.random() * 800);
+	if (confidenceCount>=minConfidence || brownieCount>=3){
+	$(scenarioP).html("");
+	$(resultDiv).html("");
+	$(actionsDiv).remove();
+	$(scenarioP).append("<p>Wow! Well done on your climb up the coroporate ladder! You have achieved the ultimate spot at the top as: <em>Chairman of the Board!</em></p><p>Congratulations! You will start your new job next week and never report to anyone ever again.</p>");
+	$(resultDiv).append("<p class='win'>I believe you can make huge changes in this world!</p><p class='win'>Thank you so much for playing! I hope you enjoyed your raucous and perilous journey up the corporate ladder... Stay tuned for more games from Swansong Games!");
+	$(resultDiv).append("<img src='../assets/img/Treasures57.png'>");
+} 
 }
-
-// loops menu sounds
-menuMusic.addEventListener('ended', function() {
-    this.currentTime = 0;
-    this.play();
-}, false)
-menuNoise.addEventListener('ended', function() {
-    this.currentTime = 0;
-    this.play();
-}, false)
-//Add office ambient, jazz sound to start screen
-
-//Add click noise to buttons
-
-//Show scenario, result, action button divs on start game function
