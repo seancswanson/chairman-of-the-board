@@ -3,6 +3,7 @@ console.log('JS loaded');
 //variables for sound 
 var menuMusic = new Audio('../assets/audio/menu.wav');
 var menuNoise = new Audio('../assets/audio/office.wav');
+var menuClick = new Audio('../assets/audio/buttonclick.mp3')
 //variables for document selectors
 
 //** Starting Screen Selectors
@@ -48,3 +49,4 @@ var confidenceButton = $('<button class="action-button" id="use-confidence">Use 
 var brownieButton = $('<button class="action-button" id="use-brownie">Use brownie points!</button>');
 var nextJob = $('<button class="action-button" id="next-job">Start your new job!</button>');
 var startOver = $('<button class="action-button" id="start-over">Reincarnate as the ' + jobPositions[jobIndex].title + '</button>');
+var buttons = $('button');
