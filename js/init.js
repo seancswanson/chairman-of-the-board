@@ -11,7 +11,7 @@ menuNoise.addEventListener('ended', function() {
 document.addEventListener("DOMContentLoaded", loadGame);
 
 function loadGame() {
-    jobIndex = 3;
+    jobIndex = 0;
     sceneIndex = 0;
     actionIndex = 0;
     menuMusic.play();
