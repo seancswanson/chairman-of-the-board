@@ -217,8 +217,12 @@ function checkForWin(){
 	$(scenarioP).html("");
 	$(resultDiv).html("");
 	$(actionsDiv).remove();
-	$(scenarioP).append("<p>Wow! Well done on your climb up the coroporate ladder! You have achieved the ultimate spot at the top as: <em>Chairman of the Board!</em></p><p>Congratulations! You will start your new job next week and never report to anyone ever again.</p>");
-	$(resultDiv).append("<p class='win'>I believe you can make huge changes in this world!</p><p class='win'>Thank you so much for playing! I hope you enjoyed your raucous and perilous journey up the corporate ladder... Stay tuned for more games from Swansong Games!");
+	$(resultDiv).append("<p>Wow! Well done on your climb up the coroporate ladder! You have achieved the ultimate spot at the top as: <h1 id='congrats'>Chairman of the Board!</h1></p><p>Congratulations! You will start your new job next week and never report to anyone ever again.</p>");
+	$(scenarioP).append("<p class='win'>I believe you can make huge changes in this world!</p><p class='win'>Thank you so much for playing! I hope you enjoyed your raucous and perilous journey up the corporate ladder... Stay tuned for more games from Swansong Games!");
 	$(resultDiv).append("<img src='../assets/img/Treasures57.png'>");
+    $(resultDiv).append(returnToMenu);
+    returnToMenu.on("click", function(){
+        loadGame();
+    })
 } 
 }

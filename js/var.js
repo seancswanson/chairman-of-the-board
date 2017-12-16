@@ -41,12 +41,13 @@ var sceneIndex = 0;
 var actionIndex = 0;
 
 // For button for next scene 
-var nextScene = $('<button class="action-button" id="nextButton">Next scene</button> or ');
+var nextScene = $('<button class="action-button" id="nextButton">Next scene</button>');
+var returnToMenu = $('<button class="action-button" id="menureturn">Return to Menu</button>')
 
 // For button for promotions
 var promotionButton = $('<button class="action-button" id="promotionButton">Try for promotion?</button>');
 var confidenceButton = $('<button class="action-button" id="use-confidence">Use confidence points,<br> i\'ll take my chances.</button>');
 var brownieButton = $('<button class="action-button" id="use-brownie">Use brownie points!</button>');
 var nextJob = $('<button class="action-button" id="next-job">Start your new job!</button>');
-var startOver = $('<button class="action-button" id="start-over">Reincarnate as the ' + jobPositions[jobIndex].title + '</button>');
+var startOver = $('<button class="action-button" id="start-over">>Reincarnate on the first week of your current job title</button>');
 var buttons = $('button');

@@ -9,6 +9,12 @@
     }
 }
 
+@keyframes underline {
+    50% {
+        text-decoration: underline;
+    }
+}
+
 @keyframes fadein {
     from {
         opacity: 0;
@@ -311,9 +317,23 @@ button:hover {
     top: -14px;
 }
 
+#congrats {
+    font-size: 40px;
+    animation: underline .4s step-end infinite alternate;
+
+}
+
 #result-div img {
     position: relative;
-    top: -35px;
+    top: -120px;
+    left: 270px;
+}
+
+#menureturn {
+    position: relative;
+    top: -85px;
+    left: 175px;
+    width: 100px;
 }
 
 #result-text {
@@ -377,7 +397,7 @@ button:hover {
 
 #brownie-points {
     position: relative;
-    left: 110px;
+    left: 100px;
 }
 
 #job {

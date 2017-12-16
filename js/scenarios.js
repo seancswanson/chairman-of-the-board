@@ -13,7 +13,7 @@ var jobPositions = [
 	  outcomes: [
 		  {
 		  //action, result text, score counters
-		  action: ">Search online to debug and hope their is a 'Corporate Overflow' answer, then follow the best voted answer.",
+		  action: ">Search online to debug and hope there is a 'Corporate Overflow' answer, then follow the best voted answer.",
 		  result: "Your stack skills are impressive! You find out you need to power cycle the printer. Nice work!",
 		  confidence: 50,
 		  brownie: 0
@@ -131,10 +131,10 @@ var jobPositions = [
 	title: "Office Intern",
 	scenarios: [
 		{
-	  text: "The Chairman is in a real bind... They are busy, they are stressed, AND their wife's birthday is tomorrow and he's asked you what you think she would like. What will you suggest?",
+	  text: "The Chairman is in a real bind... They are busy, they are stressed, AND their spouse's birthday is tomorrow and they've asked you what you think she would like. What will you suggest?",
 	  outcomes: [{
-	          action: ">Flowers. All women love flowers (AND THEY'RE CHEAP).",
-	          result: "All women except for the Chairman's wife. The Chairman says his wife deserves better than mere plants! You would only understand if you made $500k /yr...",
+	          action: ">Flowers. All people love flowers (AND THEY'RE CHEAP).",
+	          result: "All people except for the Chairman's spouse. The Chairman says their spouse deserves better than mere plants! You would only understand if you made $500k /yr...",
 	          confidence: -30,
 	          brownie: -1
 	      },
@@ -146,13 +146,13 @@ var jobPositions = [
 	      },
 	      {
 	          action: ">A diamond necklace. (CLICHE BUT EFFECTIVE !)",
-	          result: "Not a terrible idea... considering she wears all 5 at a time I might want to consider a different jewel. You are giving me some great ideas! Thank you intern!",
+	          result: "Not a terrible idea... considering their spouse wears all 5 at a time I might want to consider a different jewel. You are giving me some great ideas! Thank you intern!",
 	          confidence: 30,
 	          brownie: 0
 	      },
 	      {
 	          action: ">A life time membership at 'binge shopper's anonymous'.",
-	          result: "He thinks you are being ironic and has a knee-slappin' laughing attack... 'If only she saw it as a problem- I might still have some retirement money! I'm trying to spend some time in Cabo, baby! WAHOO!' He walks away chuckling to himself... cementing the idea in your head that the Chairman is being used. :(",
+	          result: "They think you are being ironic and has a knee-slappin' laughing attack... 'If only my spouse saw it as a problem- I might still have some retirement money! I'm trying to spend some time in Cabo, baby! WAHOO!' They walk away chuckling to themself... cementing the idea in your head that the Chairman is being used. :(",
 	          confidence: 50,
 	          brownie: 0
 	      }
