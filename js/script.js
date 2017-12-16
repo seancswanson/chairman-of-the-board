@@ -40,6 +40,8 @@ function careerBegin(jobIndex, sceneIndex) {
         // On action click I want to return the index of that button and then 
         // populate the correlated outcome/result text 
         $(actionButtons).on("click", function() {
+            menuClick.load();
+            menuClick.play();
             actionIndex = $(actionButtons).index(this);
             takeAction();
         });

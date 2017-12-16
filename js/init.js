@@ -16,6 +16,9 @@ function loadGame() {
     startScreen.slideDown();
     gameScreen.hide();
     instructionDiv.hide();
+    buttons.on("click", function(){
+        menuClick.play();
+    });
     playButton.on("click", startGame);
     instructionsButton.on("click", openInstructions);
 }
