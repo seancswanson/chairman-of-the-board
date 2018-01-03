@@ -1,9 +1,9 @@
 # Chairman of the Board
 A front-end corporate ladder simulator game.
 
-![Title Screen](/title.png)
+![Title Screen](title.png)
 
-![Example](/example.png)
+![Example](example.png)
 
 ## Instructions
 Start your corporate career as a Mailroom Clerk and try to climb the ranks as you encounter scenarios and events that could skyrocket you to your Golden Throne as Chairman of the Board or be derailed and spend eternity in that god-forsaken letter hell!
