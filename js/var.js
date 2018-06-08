@@ -1,9 +1,9 @@
 console.log('JS loaded');
 
 //variables for sound
-var menuMusic = new Audio('assets/audio/menu.wav');
-var menuNoise = new Audio('assets/audio/office.wav');
-var menuClick = new Audio('assets/audio/buttonclick.mp3')
+var menuMusic = new Audio('/assets/audio/menu.wav');
+var menuNoise = new Audio('/assets/audio/office.wav');
+var menuClick = new Audio('/assets/audio/buttonclick.mp3')
 //variables for document selectors
 
 //** Starting Screen Selectors
