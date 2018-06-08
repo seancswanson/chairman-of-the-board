@@ -1,9 +1,9 @@
 console.log('JS loaded');
 
-//variables for sound 
-var menuMusic = new Audio('../assets/audio/menu.wav');
-var menuNoise = new Audio('../assets/audio/office.wav');
-var menuClick = new Audio('../assets/audio/buttonclick.mp3')
+//variables for sound
+var menuMusic = new Audio('/assets/audio/menu.wav');
+var menuNoise = new Audio('/assets/audio/office.wav');
+var menuClick = new Audio('/assets/audio/buttonclick.mp3')
 //variables for document selectors
 
 //** Starting Screen Selectors
@@ -14,7 +14,7 @@ var playButton = $("#start");
 var instructionsButton = $("#info");
 var instructionDiv = $("#instructions-div");
 var exitInstructions = $("#return-to-menu");
-//** Game selectors 
+//** Game selectors
 var gameScreen = $("#game-div");
 var scenarioDiv = $("#scenario-div");
 var scenarioP = $("#scenario-text");
@@ -40,7 +40,7 @@ var sceneIndex = 0;
 // For referencing choice made
 var actionIndex = 0;
 
-// For button for next scene 
+// For button for next scene
 var nextScene = $('<button class="action-button" id="nextButton">Next scene</button>');
 var returnToMenu = $('<button class="action-button" id="menureturn">Return to Menu</button>')
 
